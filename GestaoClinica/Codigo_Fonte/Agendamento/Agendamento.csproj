@@ -1,0 +1,699 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{85D68298-C6BB-42B8-BEAA-633FFB328485}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Agendamento</RootNamespace>
+    <AssemblyName>Agendamento</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MySql.Data, Version=6.9.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MySQL Connector Net 6.9.3\Assemblies\v4.5\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MySQL Connector Net 6.9.3\Assemblies\v4.5\MySql.Data.Entity.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Web, Version=6.9.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MySQL Connector Net 6.9.3\Assemblies\v4.5\MySql.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.1.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.2.1.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.2.1.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.2.1.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.2.1.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\tb_consultasController.cs" />
+    <Compile Include="Controllers\tb_funcionarioController.cs" />
+    <Compile Include="Controllers\tb_medicosController.cs" />
+    <Compile Include="Controllers\tb_pacientesController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Agendamento.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Agendamento.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Agendamento.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Agendamento.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Agendamento.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Agendamento.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\tb_consultas.cs">
+      <DependentUpon>Agendamento.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tb_funcionario.cs">
+      <DependentUpon>Agendamento.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tb_medicos.cs">
+      <DependentUpon>Agendamento.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tb_pacientes.cs">
+      <DependentUpon>Agendamento.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Plugins\bootstrap-3.2.0-dist\css\bootstrap-theme.css" />
+    <Content Include="Content\Plugins\bootstrap-3.2.0-dist\css\bootstrap-theme.min.css" />
+    <Content Include="Content\Plugins\bootstrap-3.2.0-dist\css\bootstrap.css" />
+    <Content Include="Content\Plugins\bootstrap-3.2.0-dist\css\bootstrap.min.css" />
+    <Content Include="Content\Plugins\bootstrap-3.2.0-dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Plugins\bootstrap-3.2.0-dist\js\bootstrap.js" />
+    <Content Include="Content\Plugins\bootstrap-3.2.0-dist\js\bootstrap.min.js" />
+    <Content Include="Content\Plugins\Bootstrap\css\bootstrap-theme.css" />
+    <Content Include="Content\Plugins\Bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="Content\Plugins\Bootstrap\css\bootstrap.css" />
+    <Content Include="Content\Plugins\Bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\Plugins\Bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Plugins\Bootstrap\js\bootstrap-tabs.js" />
+    <Content Include="Content\Plugins\Bootstrap\js\bootstrap.js" />
+    <Content Include="Content\Plugins\Bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\Plugins\DataTables\css\jquery.dataTables.min.css" />
+    <Content Include="Content\Plugins\DataTables\images\back_disabled.png" />
+    <Content Include="Content\Plugins\DataTables\images\back_enabled.png" />
+    <Content Include="Content\Plugins\DataTables\images\back_enabled_hover.png" />
+    <Content Include="Content\Plugins\DataTables\images\favicon.ico" />
+    <Content Include="Content\Plugins\DataTables\images\forward_disabled.png" />
+    <Content Include="Content\Plugins\DataTables\images\forward_enabled.png" />
+    <Content Include="Content\Plugins\DataTables\images\forward_enabled_hover.png" />
+    <Content Include="Content\Plugins\DataTables\images\sort_asc.png" />
+    <Content Include="Content\Plugins\DataTables\images\sort_asc_disabled.png" />
+    <Content Include="Content\Plugins\DataTables\images\sort_both.png" />
+    <Content Include="Content\Plugins\DataTables\images\sort_desc.png" />
+    <Content Include="Content\Plugins\DataTables\images\sort_desc_disabled.png" />
+    <Content Include="Content\Plugins\DataTables\js\jquery.dataTables.min.js" />
+    <Content Include="Content\Plugins\DataTables\language\dataTables.pt_br.txt" />
+    <Content Include="Content\Plugins\FontAwesome\css\font-awesome-ie7.min.css" />
+    <Content Include="Content\Plugins\FontAwesome\css\font-awesome.css" />
+    <Content Include="Content\Plugins\FontAwesome\css\font-awesome.min.css" />
+    <Content Include="Content\Plugins\FontAwesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\Plugins\Impromptu\css\jquery-impromptu.css" />
+    <Content Include="Content\Plugins\Impromptu\js\jquery-impromptu.js" />
+    <Content Include="Content\Plugins\JqueryUi\css\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Content\Plugins\JqueryUi\css\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Content\Plugins\JqueryUi\css\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Content\Plugins\JqueryUi\css\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Content\Plugins\JqueryUi\css\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Content\Plugins\JqueryUi\css\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\Plugins\JqueryUi\css\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Content\Plugins\JqueryUi\css\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Content\Plugins\JqueryUi\css\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Content\Plugins\JqueryUi\css\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\Plugins\JqueryUi\css\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Content\Plugins\JqueryUi\css\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Content\Plugins\JqueryUi\css\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Content\Plugins\JqueryUi\css\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\Plugins\JqueryUi\css\jquery-ui.css" />
+    <Content Include="Content\Plugins\JqueryUi\css\jquery-ui.min.css" />
+    <Content Include="Content\Plugins\JqueryUi\css\jquery-ui.structure.css" />
+    <Content Include="Content\Plugins\JqueryUi\css\jquery-ui.structure.min.css" />
+    <Content Include="Content\Plugins\JqueryUi\css\jquery-ui.theme.css" />
+    <Content Include="Content\Plugins\JqueryUi\css\jquery-ui.theme.min.css" />
+    <Content Include="Content\Plugins\JqueryUi\js\jquery-ui.js" />
+    <Content Include="Content\Plugins\JqueryUi\js\jquery-ui.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\additional-methods.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\additional-methods.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\jquery.validate.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\jquery.validate.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_ar.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_ar.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_bg.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_bg.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_ca.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_ca.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_cs.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_cs.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_da.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_da.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_de.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_de.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_el.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_el.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_es.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_es.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_es_AR.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_es_AR.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_et.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_et.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_eu.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_eu.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_fa.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_fa.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_fi.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_fi.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_fr.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_fr.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_gl.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_gl.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_he.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_he.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_hr.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_hr.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_hu.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_hu.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_id.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_id.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_is.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_is.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_it.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_it.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_ja.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_ja.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_ka.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_ka.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_kk.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_kk.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_ko.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_ko.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_lt.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_lt.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_lv.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_lv.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_my.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_my.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_nl.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_nl.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_no.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_no.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_pl.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_pl.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_pt_BR.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_pt_BR.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_pt_PT.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_pt_PT.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_ro.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_ro.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_ru.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_ru.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_si.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_si.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_sk.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_sk.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_sl.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_sl.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_sr.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_sr.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_sr_lat.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_sr_lat.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_sv.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_sv.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_th.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_th.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_tj.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_tj.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_tr.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_tr.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_uk.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_uk.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_vi.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_vi.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_zh.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_zh.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_zh_TW.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\messages_zh_TW.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\methods_de.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\methods_de.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\methods_es_CL.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\methods_es_CL.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\methods_fi.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\methods_fi.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\methods_nl.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\methods_nl.min.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\methods_pt.js" />
+    <Content Include="Content\Plugins\JqueryValidate\js\localization\methods_pt.min.js" />
+    <Content Include="Content\Plugins\Login\assets\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\Plugins\Login\assets\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\Plugins\Login\assets\css\style.css" />
+    <Content Include="Content\Plugins\Login\assets\css\style_default.css" />
+    <Content Include="Content\Plugins\Login\assets\font-awesome\css\font-awesome.css" />
+    <Content Include="Content\Plugins\Login\assets\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\Plugins\Login\assets\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\Plugins\Login\assets\img\bg_menu.jpg" />
+    <Content Include="Content\Plugins\Login\assets\img\bg_moot.jpg" />
+    <Content Include="Content\Plugins\Login\assets\img\header_line.png" />
+    <Content Include="Content\Plugins\Login\assets\img\loading.gif" />
+    <Content Include="Content\Plugins\Login\assets\img\logo_moot.png" />
+    <Content Include="Content\Plugins\Login\assets\img\photo.jpg" />
+    <Content Include="Content\Plugins\Login\assets\img\usuario.jpg" />
+    <Content Include="Content\Plugins\Login\assets\js\jquery-1.8.2.min.js" />
+    <Content Include="Content\Plugins\select2\select2-bootstrap.css" />
+    <Content Include="Content\Plugins\select2\select2-metronic.css" />
+    <Content Include="Content\Plugins\select2\select2-spinner.gif" />
+    <Content Include="Content\Plugins\select2\select2.css" />
+    <Content Include="Content\Plugins\select2\select2.js" />
+    <Content Include="Content\Plugins\select2\select2.min.js" />
+    <Content Include="Content\Plugins\select2\select2.png" />
+    <Content Include="Content\Plugins\select2\select2x2.png" />
+    <Content Include="Content\Plugins\select2\select2_locale_ar.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_bg.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_ca.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_cs.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_da.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_de.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_el.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_es.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_et.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_eu.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_fa.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_fi.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_fr.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_gl.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_he.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_hr.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_hu.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_id.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_is.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_it.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_ja.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_ko.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_lt.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_lv.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_mk.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_ms.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_nl.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_no.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_pl.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_pt-BR.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_pt-PT.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_ro.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_ru.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_sk.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_sv.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_th.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_tr.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_ua.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_vi.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_zh-CN.js" />
+    <Content Include="Content\Plugins\select2\select2_locale_zh-TW.js" />
+    <Content Include="Content\Plugins\select2\select2_original.png" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\ListaAgendamento.js" />
+    <Content Include="Scripts\Pacientes.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\Agendamento.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Agendamento.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Agendamento.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Agendamento.edmx</DependentUpon>
+      <LastGenOutput>Agendamento.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Agendamento.edmx.diagram">
+      <DependentUpon>Agendamento.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Agendamento.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Agendamento.edmx</DependentUpon>
+      <LastGenOutput>Agendamento.cs</LastGenOutput>
+    </Content>
+    <Content Include="Content\Plugins\bootstrap-3.2.0-dist\css\bootstrap-theme.css.map" />
+    <Content Include="Content\Plugins\bootstrap-3.2.0-dist\css\bootstrap.css.map" />
+    <Content Include="Content\Plugins\bootstrap-3.2.0-dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\Plugins\bootstrap-3.2.0-dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\Plugins\bootstrap-3.2.0-dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\Plugins\Bootstrap\css\.DS_Store" />
+    <Content Include="Content\Plugins\Bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="Content\Plugins\Bootstrap\css\bootstrap.css.map" />
+    <Content Include="Content\Plugins\Bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\Plugins\Bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\Plugins\Bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\Plugins\Bootstrap\js\.DS_Store" />
+    <Content Include="Content\Plugins\DataTables\images\Sorting icons.psd" />
+    <Content Include="Content\Plugins\FontAwesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\Plugins\FontAwesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\Plugins\FontAwesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\Plugins\FontAwesome\fonts\FontAwesome.otf" />
+    <Content Include="Content\Plugins\FontAwesome\font\fontawesome-webfont.eot" />
+    <Content Include="Content\Plugins\FontAwesome\font\fontawesome-webfont.ttf" />
+    <Content Include="Content\Plugins\FontAwesome\font\fontawesome-webfont.woff" />
+    <Content Include="Content\Plugins\FontAwesome\font\FontAwesome.otf" />
+    <Content Include="Content\Plugins\FontAwesome\less\bordered-pulled.less" />
+    <Content Include="Content\Plugins\FontAwesome\less\core.less" />
+    <Content Include="Content\Plugins\FontAwesome\less\fixed-width.less" />
+    <Content Include="Content\Plugins\FontAwesome\less\font-awesome-ie7.less" />
+    <Content Include="Content\Plugins\FontAwesome\less\font-awesome.less" />
+    <Content Include="Content\Plugins\FontAwesome\less\icons.less" />
+    <Content Include="Content\Plugins\FontAwesome\less\larger.less" />
+    <Content Include="Content\Plugins\FontAwesome\less\list.less" />
+    <Content Include="Content\Plugins\FontAwesome\less\mixins.less" />
+    <Content Include="Content\Plugins\FontAwesome\less\path.less" />
+    <Content Include="Content\Plugins\FontAwesome\less\rotated-flipped.less" />
+    <Content Include="Content\Plugins\FontAwesome\less\spinning.less" />
+    <Content Include="Content\Plugins\FontAwesome\less\stacked.less" />
+    <Content Include="Content\Plugins\FontAwesome\less\variables.less" />
+    <Content Include="Content\Plugins\FontAwesome\sass\font-awesome.sass" />
+    <Content Include="Content\Plugins\FontAwesome\sass\font-awesome.scss" />
+    <Content Include="Content\Plugins\FontAwesome\scss\font-awesome.scss" />
+    <Content Include="Content\Plugins\FontAwesome\scss\_bordered-pulled.scss" />
+    <Content Include="Content\Plugins\FontAwesome\scss\_core.scss" />
+    <Content Include="Content\Plugins\FontAwesome\scss\_fixed-width.scss" />
+    <Content Include="Content\Plugins\FontAwesome\scss\_icons.scss" />
+    <Content Include="Content\Plugins\FontAwesome\scss\_larger.scss" />
+    <Content Include="Content\Plugins\FontAwesome\scss\_list.scss" />
+    <Content Include="Content\Plugins\FontAwesome\scss\_mixins.scss" />
+    <Content Include="Content\Plugins\FontAwesome\scss\_path.scss" />
+    <Content Include="Content\Plugins\FontAwesome\scss\_rotated-flipped.scss" />
+    <Content Include="Content\Plugins\FontAwesome\scss\_spinning.scss" />
+    <Content Include="Content\Plugins\FontAwesome\scss\_stacked.scss" />
+    <Content Include="Content\Plugins\FontAwesome\scss\_variables.scss" />
+    <Content Include="Content\Plugins\Login\assets\.DS_Store" />
+    <Content Include="Content\Plugins\Login\assets\bootstrap\.DS_Store" />
+    <Content Include="Content\Plugins\Login\assets\bootstrap\css\.DS_Store" />
+    <Content Include="Content\Plugins\Login\assets\bootstrap\js\.DS_Store" />
+    <Content Include="Content\Plugins\Login\assets\css\.DS_Store" />
+    <Content Include="Content\Plugins\Login\assets\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\Plugins\Login\assets\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\Plugins\Login\assets\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\Plugins\Login\assets\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Content\Plugins\Login\assets\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Content\Plugins\Login\assets\font-awesome\less\core.less" />
+    <Content Include="Content\Plugins\Login\assets\font-awesome\less\fixed-width.less" />
+    <Content Include="Content\Plugins\Login\assets\font-awesome\less\font-awesome.less" />
+    <Content Include="Content\Plugins\Login\assets\font-awesome\less\icons.less" />
+    <Content Include="Content\Plugins\Login\assets\font-awesome\less\larger.less" />
+    <Content Include="Content\Plugins\Login\assets\font-awesome\less\list.less" />
+    <Content Include="Content\Plugins\Login\assets\font-awesome\less\mixins.less" />
+    <Content Include="Content\Plugins\Login\assets\font-awesome\less\path.less" />
+    <Content Include="Content\Plugins\Login\assets\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Content\Plugins\Login\assets\font-awesome\less\spinning.less" />
+    <Content Include="Content\Plugins\Login\assets\font-awesome\less\stacked.less" />
+    <Content Include="Content\Plugins\Login\assets\font-awesome\less\variables.less" />
+    <Content Include="Content\Plugins\Login\assets\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Content\Plugins\Login\assets\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Content\Plugins\Login\assets\font-awesome\scss\_core.scss" />
+    <Content Include="Content\Plugins\Login\assets\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Content\Plugins\Login\assets\font-awesome\scss\_icons.scss" />
+    <Content Include="Content\Plugins\Login\assets\font-awesome\scss\_larger.scss" />
+    <Content Include="Content\Plugins\Login\assets\font-awesome\scss\_list.scss" />
+    <Content Include="Content\Plugins\Login\assets\font-awesome\scss\_mixins.scss" />
+    <Content Include="Content\Plugins\Login\assets\font-awesome\scss\_path.scss" />
+    <Content Include="Content\Plugins\Login\assets\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Content\Plugins\Login\assets\font-awesome\scss\_spinning.scss" />
+    <Content Include="Content\Plugins\Login\assets\font-awesome\scss\_stacked.scss" />
+    <Content Include="Content\Plugins\Login\assets\font-awesome\scss\_variables.scss" />
+    <Content Include="Content\Plugins\Login\assets\img\.DS_Store" />
+    <Content Include="Content\Plugins\Login\assets\js\.DS_Store" />
+    <Content Include="Content\Plugins\select2\bower.json" />
+    <Content Include="Content\Plugins\select2\LICENSE" />
+    <Content Include="Content\Plugins\select2\README.md" />
+    <Content Include="Content\Plugins\select2\release.sh" />
+    <Content Include="Content\Plugins\select2\select2.jquery.json" />
+    <Content Include="Content\Plugins\select2\select2_locale_en.js.template" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\lib\jquery-1.11.0.min.js" />
+    <Content Include="Scripts\lib\jquery.maskedinput.js" />
+    <Content Include="Scripts\lib\jquery.numeric.js" />
+    <Content Include="Scripts\lib\prototype.js" />
+    <Content Include="Scripts\Agendamento.js" />
+    <Content Include="Scripts\Medicos.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\util.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\_RemoveAccountPartial.cshtml" />
+    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\tb_pacientes\Create.cshtml" />
+    <Content Include="Views\tb_pacientes\Delete.cshtml" />
+    <Content Include="Views\tb_pacientes\Details.cshtml" />
+    <Content Include="Views\tb_pacientes\Edit.cshtml" />
+    <Content Include="Views\tb_pacientes\Index.cshtml" />
+    <Content Include="Views\tb_medicos\Create.cshtml" />
+    <Content Include="Views\tb_medicos\Delete.cshtml" />
+    <Content Include="Views\tb_medicos\Details.cshtml" />
+    <Content Include="Views\tb_medicos\Edit.cshtml" />
+    <Content Include="Views\tb_medicos\Index.cshtml" />
+    <Content Include="Views\tb_funcionario\Create.cshtml" />
+    <Content Include="Views\tb_funcionario\Delete.cshtml" />
+    <Content Include="Views\tb_funcionario\Details.cshtml" />
+    <Content Include="Views\tb_funcionario\Edit.cshtml" />
+    <Content Include="Views\tb_funcionario\Index.cshtml" />
+    <Content Include="Views\tb_consultas\Create.cshtml" />
+    <Content Include="Views\tb_consultas\Delete.cshtml" />
+    <Content Include="Views\tb_consultas\Details.cshtml" />
+    <Content Include="Views\tb_consultas\Edit.cshtml" />
+    <Content Include="Views\tb_consultas\Index.cshtml" />
+    <Content Include="Views\tb_consultas\Consulta.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\Funcionario\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>62238</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/Agendamento</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
